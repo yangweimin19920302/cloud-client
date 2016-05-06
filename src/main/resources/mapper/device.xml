@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="app.cx.UserMapper">
+
+    <resultMap id="device" type="app.bean.Device" >
+    </resultMap>
+    <select id="get" resultMap="device" parameterType="java.lang.String" >
+        select * from device where deviceID = #{id}
+    </select>
+
+    <insert id="add" parameterType="app.bean.Device">
+        insert into device(deviceID,deviceName,MAC,memSize,remark,softwareVersion,hardwareVersion,addDate)
+		 values(#{deviceID}, #{deviceName}, #{MAC},#{memSize},#{remark},#{softwareVersion},#{hardwareVersion},#{addDate})
+    </insert>
+</mapper>
